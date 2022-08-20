@@ -118,3 +118,8 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 
 
 ```
+<style>
+div.mermaid {
+    text-align: left;
+}	
+</style
