@@ -1,6 +1,6 @@
 # Windows
 ```mermaid
-  graph TB
+  graph LR	
     
 main{window}
 main --> windows((Windows))
