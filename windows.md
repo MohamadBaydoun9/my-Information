@@ -116,7 +116,7 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 					 <br>12-disable archive scanning :Set-MpPreference -DisableArchiveScanning $true
 ")
 
-classDef default stroke:#333,stroke-width:4px,text-align:left;
+classDef default stroke:#333,stroke-width:4px,text-align:left,font-size:22px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 ```
