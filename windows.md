@@ -85,13 +85,23 @@ wcommand31 --> icacls2("icalcls on a folder that only gets created once a user s
 										<br>GOTO START
 										<br>:PERM
 										<br>icacls %folderpath% /grant:r 'Authenticated Users':(OI)(CI)F /t /c 
-										<br>Then use the task scheduler to start the batch script <br>based on a trigger when a match is found in audit logging. Checkout this article.")
+										<br>Then use the task scheduler to start the batch script <br>based on a trigger when a match is found in audit logging. Checkout this article.
+											</br>
+											</br>
+											</br>
+											</br>
+											</br>")
 
 
 w3 --> wcommand32("Share Permissions
 										<br>1-Create Share :net share name='path' /grant:group,changeORreadORfull
 										<br>2-use smbclient to Connect to the Share :smbclient -L IPaddressOfTarget -U htb-student
 										<br>3-view all the shared folders : net share
+											</br>
+											</br>
+											</br>
+											</br>
+											</br>
 										")
 
 
@@ -100,6 +110,11 @@ w4--> wd1("stop windows defender :
 					 <br>1-sc stop WinDefend
 					 <br>2-sc config WinDefend start= disabled 
 					 <br>3-sc query WinDefend
+					 	</br>
+											</br>
+											</br>
+											</br>
+											</br>
 					 ")
 w4--> wd2("mpcmdrun.exe Tool CMD:
 					 <br>1-find the utility in %ProgramFiles%\Windows Defender\MpCmdRun.exe
@@ -110,7 +125,12 @@ w4--> wd2("mpcmdrun.exe Tool CMD:
 					 <br>6-view quarantined items :MpCmdRun -Restore -ListAll
 					 <br>7-restore quarantined items :MpCmdRun -Restore -All 
 					 <br>8-restore quarantined items :MpCmdRun -Restore -Name ITEM-NAME -FilePath
-				 	<br>9-Exclution path : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths")
+				 	<br>9-Exclution path : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths
+						</br>
+											</br>
+											</br>
+											</br>
+											</br>")
 w4--> wd3("mpcmdrun.exe Tool powershell:
 					 <br>1-status of Microsoft Defender::Get-MpComputerStatus -Confirm the AntivirusEnabled is reads True
 					 <br>2-check for upadate :Update-MpSignature
@@ -132,10 +152,15 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 					 <br>12-disable archive scanning :Set-MpPreference -DisableArchiveScanning $true
 					 <br>13-add exclution :powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath 'C:\Windows\SysWOW64\Mpk'
 					 <br>14-Unistall Window Defender :Uninstall-WindowsFeature -Name Windows-Defender
-")
+							</br>
+											</br>
+											</br>
+											</br>
+											</br>
+						")
 
 classDef default text-align:left;
-linkStyle default fill:none,stroke-width:3px,stroke:red,font-size:15px;
+linkStyle default fill:none,stroke-width:3px,stroke:red,font-size:22px;
 
 
 ```
