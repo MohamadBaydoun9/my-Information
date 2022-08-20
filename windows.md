@@ -1,6 +1,5 @@
 # Windows
 ```mermaid
-{{<mermaid align="left">}}
  graph LR
     
 windows{Windows}
