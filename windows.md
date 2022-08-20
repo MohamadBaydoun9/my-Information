@@ -1,6 +1,6 @@
 # Windows
 ```mermaid
-  graph LR
+ graph LR
     
 windows{Windows}
 windows --> w1[[Windows Information]]
