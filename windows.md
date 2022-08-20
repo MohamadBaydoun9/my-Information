@@ -159,8 +159,8 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 											</br>
 						")
 
-classDef default text-align:left;
-linkStyle default fill:none,stroke-width:3px,stroke:red,font-size:30px;
+classDef default text-align:left,font-size:20px;
+linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 
 ```
