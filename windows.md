@@ -4,13 +4,13 @@
 graph LR
     
 windows{Windows}
-windows --> w1[["Windows Information
+windows --> w1[["Windows Information																								
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 								<br> 2-Systeminfo
 								<br> 3-wmic os get version
 								<br> 4-ver
 							"]]
-windows --> w2[["utilities
+windows --> w2[["utilities																					
 						 <br>1-Remote Desktop RDP :mstsc.exe
 									"]]
 windows --> w3[[Permissions]]
