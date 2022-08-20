@@ -1,7 +1,7 @@
 # Windows
+
 ```mermaid
-%%{config: { 'fontFamily': 'Menlo', 'fontSize': 18, 'fontWeight': 600} }%%
- graph LR
+graph LR
     
 windows{Windows}
 windows --> w1[[Windows Information]]
@@ -116,10 +116,7 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 					 <br>12-disable archive scanning :Set-MpPreference -DisableArchiveScanning $true
 ")
 
+classDef default stroke:#333,stroke-width:4px,text-align:left;
+linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 ```
-<style>
-div.mermaid {
-    text-align: left;
-}	
-</style
