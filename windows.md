@@ -19,9 +19,9 @@ wcommand31 --> icacls3("icacls c:\users /grant joe:f <br> grant the joe user ful
 wcommand31 --> icacls4("Remove inheritence :icacls folder /inheritance:d<br>enable inheritence :icacls folder /inheritance:e")
 wcommand31 --> icacls5("Grant Permissions :icacls folder /grant hr:(m,rx,RD,WDAC)")
 wcommand31 --> icacls6("icacls RnD /grant everyone:R /t /c
-										<br>granting read access to the special identity Everyone
-										<br>/t parameter—Specifies a recursive operation
-										<br>/c parameter—Specifies a continued operation despite any errors")
+										granting read access to the special identity Everyone
+										\n/t parameter—Specifies a recursive operation
+										\n/c parameter—Specifies a continued operation despite any errors")
 wcommand31 --> icacls7("# ADVANCED Permissions
 										<br>icacls RnD /grant:r Auditors:(WDAC) /t /c
 										<br>advanced permissions need to be enclosed in parentheses
