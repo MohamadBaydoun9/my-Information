@@ -1,6 +1,6 @@
 # Windows
 ```mermaid
-%%{init: { 'sequence': {'messageAlign': 'left'} }}%%
+%%{config: { 'fontFamily': 'Menlo', 'fontSize': 18, 'fontWeight': 600} }%%
  graph LR
     
 windows{Windows}
