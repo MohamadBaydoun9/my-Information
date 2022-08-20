@@ -2,8 +2,7 @@
 ```mermaid
   graph LR	
     
-main{window}
-main --> windows((Windows))
+windows{window}
 
 windows --> w1[[Windows Information]]
 w1 --> wcommand11("1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber")
