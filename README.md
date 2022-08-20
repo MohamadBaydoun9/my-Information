@@ -2,9 +2,8 @@
 ```mermaid
   graph TB
     
-main{Start}
+main{window}
 main --> windows((Windows))
-main --> linux((Linux))
 
 windows --> w1[[Windows Information]]
 w1 --> wcommand11("1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber")
@@ -76,6 +75,4 @@ wcommand31 --> icacls13("site :https://4sysops.com/archives/icacls-list-set-gran
 w3 --> wcommand32("Share Permissions")
 wcommand32 --> share1("net share name='path' /grant:group,changeORreadORfull")
 
-linux --> l1[[Connect To Windows RDP Tool XFREERDP]]
-l1 --> lcoommand11("xfreerdp /v:<targetIp> /u:htb-student /p:Password")
 ```
