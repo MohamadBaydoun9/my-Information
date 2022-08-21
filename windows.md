@@ -7,7 +7,7 @@
 graph LR
     
 windows{"<span style='white-space: normal;font-size:30px'>
-	Windows
+	<b style='font-size:40px;'>Windows</b>
 	</br></br></br></br></br></span>
 	"}
 windows --> w1[["<span style='white-space: normal;font-size:30px'>
