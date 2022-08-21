@@ -180,9 +180,24 @@ windows--> wd4("<span style='white-space: normal;font-size:30px'>
 					 <br>12-messages containing specific words:Get-WinEvent -FilterHashtable @{LogName='System'} | Where-Object -Property Message -Match 'the system has resumed'
 					 <br>13-Filter by date:Get-WinEvent -FilterHashtable @{LogName='System';StartTime=$StartTime;EndTime=$EndTime}
 					 <br>14-list without detials :Get-WinEvent -FilterHashtable @{LogName='Security''} | Format-Table -Property RecordId,TimeCreated,ID,LevelDisplayName,Message
-					</br></br></br></br></br></span>
+					 <br>15-one event : Get-WinEvent -FilterHashtable @{LogName='Security'} |Where-Object ‑Property RecordId -eq 810
+					 </br></br></br></br></br></span>
 						")
 windows--> wd5("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'>Services And Processes</b>
+					 <br>1-<b>listing Logs</b> : Get-WinEvent -ListLog *
+					 <br>2-
+					 <br>3-
+					 <br>4-
+					 <br>5-
+					 <br>6-
+					 <br>7-
+					 <br>8-
+					 <br>9-
+					 
+					 </br></br></br></br></br></span>
+						")
+windows--> wd6("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'>General Information:</b>
 					 <br>1-<b>Powershell History File :</b> : %appdata%\Microsoft\Windows\PowerShell\PSReadLine
 					 <br>2- Check if Powershell Is Admin: [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match 'S-1-5-32-544')
