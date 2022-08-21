@@ -187,7 +187,7 @@ windows--> wd5("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'>Services And Processes</b>
 					 <br>1-list services :get-service -property *
 					 <br>2-extract properties : get-service | get-member
-					 <br>3-example: get-service -DisplayName "windows a*"
+					 <br>3-example: get-service -DisplayName 'windows a*'
 					 <br>4-remote :  get-service spooler -ComputerName novo8
 					 <br>5-stopped :get-service | where {$_.status -eq 'stopped'}
 					 <br>6-group based on status: get-service | Group-Object -Property Status 
@@ -201,10 +201,13 @@ windows--> wd5("<span style='white-space: normal;font-size:30px'>
 					 <br>-----------------wmi-----------------
 					 <br>1-list services : get-wmiobject win32_service | format-table
 					 <br>2-search service: get-wmiobject win32_service -filter "name='bits'" | Select *
-					 <br>3-example:get-wmiobject win32_service -filter "startmode='auto' AND state<>'Running'"
+					 <br>3-example:get-wmiobject win32_service -filter 'startmode='auto' AND state<>'Running''
 					 <br>4-Get Account:get-wmiobject win32_service -comp chi-ex01 | group startname 
-	`					<br>Methods to use  :get-wmiobject win32_service -filter "name='lanmanserver'" | get-member -MemberType Method | Select name
-					 
+	`				 <br>5-Methods That i can  use  :get-wmiobject win32_service -filter "name='lanmanserver'" | get-member -MemberType Method | Select name
+					 <br>6-Changing Mode:get-wmiobject win32_service -filter 'name='spooler'' | Invoke-WmiMethod -Name ChangeStartMode -ArgumentList 'Manual' 
+					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter "name='yammmsvc'" | Invoke-CimMethod -Name Change -Arguments 									@{StartName=".\Jeff";StartPassword="P@ssw0rd"}
+					 <br>8-site:https://4sysops.com/archives/managing-services-the-powershell-way-part-1/
+					 <br>9-get non standard service : Get-WmiObject win32_service | where { $_.Caption -notmatch "Windows" -and $_.PathName -notmatch "Windows"  } 
 					 </br></br></br></br></br></span>
 						")
 windows--> wd6("<span style='white-space: normal;font-size:30px'>
@@ -214,9 +217,24 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 					 <br>3-execute command remotly :Invoke-Command -ComputerName Server01 {Restart-Service Spooler}
 					 <br>4-get cmdlet properties get-service | get-member
 					 <br>5-Count result Lines : .count
-					 <br>6-search commands : get-command -noun service 
+					 <br>6-search commands : get-command -noun keyword 
+					 <br>
 					</br></br></br></br></br></span>
 						")
+windows--> wd7("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'powershell:</b>
+					 <br>1-Create msgbox :$wshell = new-object -COM 'Wscript.Shell' 
+					 <br> $wshell.Popup($msg,15,"Service Alert",64) | Out-Null
+					 <br>2-
+					 <br>3-
+					 <br>4-
+					 <br>5-
+					 <br>6-
+					 <br>
+					</br></br></br></br></br></span>
+						")						
+						
+						
 classDef default text-align:left,font-size:30px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
