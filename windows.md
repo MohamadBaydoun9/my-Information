@@ -7,7 +7,8 @@
 graph LR
     
 windows{Windows}
-windows --> w1[["<span style='white-space: normal;font-size:30px'>Windows Information	
+windows --> w1[["<span style='white-space: normal;font-size:30px'>
+								Windows Information	
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 								<br> 2-Systeminfo
 								<br> 3-wmic os get version
@@ -15,12 +16,19 @@ windows --> w1[["<span style='white-space: normal;font-size:30px'>Windows Inform
 								</br></br></br></br></br></span>
 							"]]
 windows --> w2[["<span style='white-space: normal;font-size:30px'>
-						utilities															
+						  utilities															
 						 <br>1-Remote Desktop RDP :mstsc.exe
 						 </br></br></br></br></br></span>
 									"]]
-windows --> w3[[<b>Permissions</b>]]
-w3 --> wcommand31("ICACLS Tool For NTFS ")
+windows --> w3[["<span style='white-space: normal;font-size:30px'>
+								<b>Permissions</b>
+								</br></br></br></br></br></span>
+								"]]
+w3 --> wcommand31("
+									<span style='white-space: normal;font-size:30px'>
+									ICACLS Tool For NTFS 
+									</br></br></br></br></br></span>
+									")
 wcommand31 --> icacls1("<span style='white-space: normal;font-size:30px'>
 											(CI): container inherit 
 											</br>(OI): object inherit	
@@ -77,7 +85,7 @@ wcommand31 --> icacls1("<span style='white-space: normal;font-size:30px'>
 
 								
 
-wcommand31 --> icacls2(<span style='white-space: normal;font-size:30px'>
+wcommand31 --> icacls2("<span style='white-space: normal;font-size:30px'>
 										icalcls on a folder that only gets created once a user signs
 										<br>@echo OFF
 										<br>set folderpath=%LOCALAPPDATA%\YourFolder
@@ -103,7 +111,10 @@ w3 --> wcommand32("<span style='white-space: normal;font-size:30px'>
 										")
 
 
-windows --> w4[[Windows Defender]]
+windows --> w4[["<span style='white-space: normal;font-size:30px'>
+									Windows Defender
+									</br></br></br></br></br></span>
+									"]]
 w4--> wd1("<span style='white-space: normal;font-size:30px'>
 					stop windows defender :
 					 <br>1-sc stop WinDefend
@@ -138,7 +149,7 @@ w4--> wd3("<span style='white-space: normal;font-size:30px'>
 					 <br>10-Schedule quick scan:Set-MpPreference -ScanScheduleQuickScanTime 06:00:00
 					 <br>Schedule Full Scan 
 					 <br>1-Set-MpPreference -ScanParameters 2
-					 <br>2-Set-MpPreference -RemediationScheduleDay SCAN-DAY (0 – Everyday1 – Sunday2 – Monday3 – Tuesday4 – Wednesday5 – Thursday6 – Friday7 – Saturday8 – Never)
+					 <br>2-Set-MpPreference -RemediationScheduleDay SCAN-DAY (0–Everyday 1–Sunday 2-Monday 3–Tuesday 4–Wednesday 5–Thursday 6–Friday 7–Saturday 8–Never)
 					 <br>3-Set-MpPreference -RemediationScheduleTime SCAN-TIME
 					 <br>11- Disable Window Defender :Set-MpPreference -DisableRealtimeMonitoring $true
 					 <br>12-Enable external drive scanning :Set-MpPreference -DisableRemovableDriveScanning $false
