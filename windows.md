@@ -6,7 +6,10 @@
 %%{init: { 'theme':'white', 'htmlLabels': true} }%%
 graph LR
     
-windows{Windows}
+windows{"<span style='white-space: normal;font-size:30px'>
+	Windows
+	</br></br></br></br></br></span>
+	"}
 windows --> w1[["<span style='white-space: normal;font-size:30px'>
 								Windows Information	
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
@@ -160,7 +163,7 @@ w4--> wd3("<span style='white-space: normal;font-size:30px'>
 					</br></br></br></br></br></span>
 						")
 
-classDef default text-align:left,font-size:25px;
+classDef default text-align:left,font-size:30px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 
