@@ -7,18 +7,20 @@
 graph LR
     
 windows{Windows}
-windows --> w1[["Windows Information	
+windows --> w1[["<span style='white-space: normal;'>Windows Information	
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 								<br> 2-Systeminfo
 								<br> 3-wmic os get version
 								<br> 4-ver
+								</br></br></br></br></br></span>
 							"]]
-windows --> w2[["utilities &#32 &#32 &#32 &#32 &#32 &#32 &#32 &#32j																	
+windows --> w2[["utilities															
 						 <br>1-Remote Desktop RDP :mstsc.exe
 									"]]
 windows --> w3[[<b>Permissions</b>]]
 w3 --> wcommand31("ICACLS Tool For NTFS ")
-wcommand31 --> icacls1("(CI): container inherit 
+wcommand31 --> icacls1("<span style='white-space: normal;'>
+											(CI): container inherit 
 											</br>(OI): object inherit	
 											</br>(IO): inherit only
 											</br>(NP): do not propagate inherit
@@ -66,18 +68,14 @@ wcommand31 --> icacls1("(CI): container inherit
 											</br>18-set IL :icacls testDir /setintegritylevel h
 											</br>*only accept l (for low), m (for medium), and h (for high) ILs
 											</br>19-site :https://4sysops.com/archives/icacls-list-set-grant-remove-and-deny-permissions/
-											</br>
-											</br>
-											</br>
-											</br>
-											</br>
+											</br></br></br></br></br></span>
 											")
 
 
 
 								
 
-wcommand31 --> icacls2("icalcls on a folder that only gets created once a user signs
+wcommand31 --> icacls2("<span style='white-space: normal;'>icalcls on a folder that only gets created once a user signs
 										<br>@echo OFF
 										<br>set folderpath=%LOCALAPPDATA%\YourFolder
 										<br>:START
@@ -89,37 +87,26 @@ wcommand31 --> icacls2("icalcls on a folder that only gets created once a user s
 										<br>:PERM
 										<br>icacls %folderpath% /grant:r 'Authenticated Users':(OI)(CI)F /t /c 
 										<br>Then use the task scheduler to start the batch script <br>based on a trigger when a match is found in audit logging. Checkout this article.
-											</br>
-											</br>
-											</br>
-											</br>
-											</br>")
+											</br></br></br></br></br></span>
+											")
 
 
 w3 --> wcommand32("<span style='white-space: normal;'>Share Permissions
 										<br>1-Create Share :net share name='path' /grant:group,changeORreadORfull
 										<br>2-use smbclient to Connect to the Share :smbclient -L IPaddressOfTarget -U htb-student
 										<br>3-view all the shared folders : net share
-											</br>
-											</br>
-											</br>
-											</br>
-											</br></span>
+										</br></br></br></br></br></span>
 										")
 
 
 windows --> w4[[Windows Defender]]
-w4--> wd1("stop windows defender :
+w4--> wd1("<span style='white-space: normal;'>stop windows defender :
 					 <br>1-sc stop WinDefend
 					 <br>2-sc config WinDefend start= disabled 
 					 <br>3-sc query WinDefend
-					 	</br>
-											</br>
-											</br>
-											</br>
-											</br>
+					 	</br></br></br></br></br></span>
 					 ")
-w4--> wd2("mpcmdrun.exe Tool CMD:
+w4--> wd2("<span style='white-space: normal;'>mpcmdrun.exe Tool CMD:
 					 <br>1-find the utility in %ProgramFiles%\Windows Defender\MpCmdRun.exe
 					 <br>2-check for upadate :MpCmdRun -SignatureUpdate
 					 <br>3-remove definitions ::MpCmdRun -RemoveDefinitions -DynamicSignaturesThe -DynamicSignatures
@@ -128,13 +115,10 @@ w4--> wd2("mpcmdrun.exe Tool CMD:
 					 <br>6-view quarantined items :MpCmdRun -Restore -ListAll
 					 <br>7-restore quarantined items :MpCmdRun -Restore -All 
 					 <br>8-restore quarantined items :MpCmdRun -Restore -Name ITEM-NAME -FilePath
-				 	<br>9-Exclution path : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths
-						</br>
-											</br>
-											</br>
-											</br>
-											</br>")
-w4--> wd3("mpcmdrun.exe Tool powershell:
+				 	 <br>9-Exclution path : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths
+					 </br></br></br></br></br></span>
+						")
+w4--> wd3("<span style='white-space: normal;'>mpcmdrun.exe Tool powershell:
 					 <br>1-status of Microsoft Defender::Get-MpComputerStatus -Confirm the AntivirusEnabled is reads True
 					 <br>2-check for upadate :Update-MpSignature
 					 <br>3-offline virus scan :Start-MpWDOScan
@@ -155,14 +139,10 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 					 <br>12-disable archive scanning :Set-MpPreference -DisableArchiveScanning $true
 					 <br>13-add exclution :powershell -inputformat none -outputformat none -NonInteractive -Command Add-MpPreference -ExclusionPath 'C:\Windows\SysWOW64\Mpk'
 					 <br>14-Unistall Window Defender :Uninstall-WindowsFeature -Name Windows-Defender
-							</br>
-											</br>
-											</br>
-											</br>
-											</br>
+					</br></br></br></br></br></span>
 						")
 
-classDef default text-align:left,font-size:30px;
+classDef default text-align:left,font-size:25px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 
