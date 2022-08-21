@@ -162,7 +162,33 @@ w4--> wd3("<span style='white-space: normal;font-size:30px'>
 					 <br>14-Unistall Window Defender :Uninstall-WindowsFeature -Name Windows-Defender
 					</br></br></br></br></br></span>
 						")
-
+windows--> wd4("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'>Windows Logs PowerShell:</b>
+					 <br>1-<b>listing Logs</b> : Get-WinEvent -ListLog *
+					 <br>2-command :Get-WinEvent -ListLog * | Select-Object LogName, RecordCount, IsClassicLog, IsEnabled, LogMode, LogType | Format-Table -AutoSize
+					 <br>3-information : All logs post-Windows Vista save as *.evtx 	
+					 <br>4-List Sources : Get-WinEvent -ListProvider * | Format-Table -Autosize
+					 <br>5-term 'powershell' in the path: Get-WinEvent -ListLog *powershell*
+					 <br>6-list all events from the PowerShell:Get-WinEvent -LogName 'Microsoft-Windows-PowerShell/Operational'
+					 <br>7-displaying it one page at a time:Get-WinEvent -LogName 'System' | Out-Host -Paging
+					 <br>8-most recent events :Get-WinEvent -LogName 'System' -MaxEvents 20
+					 <br>9-Events with a specific ID: Get-WinEvent -FilterHashTable @{LogName='System';ID='1020'}
+					 <br>Events :LogAlways 0 -Critical 1 -Error 2 -Warning 3 -Informational 4 -Verbose 5
+					 <br>10-Maching 2 Levels :Get-WinEvent -FilterHashtable @{LogName='system'} | Where-Object -FilterScript {($_.Level -eq 2) -or ($_.Level -eq 3)}
+					 <br>11-displays all audit failure events from the Security:Get-WinEvent -FilterHashtable @{LogName='Security';Keywords='4503599627370496'} 
+					 <br>*Failure Audit 4503599627370496 *Success audit 9007199254740992
+					 <br>12-messages containing specific words:Get-WinEvent -FilterHashtable @{LogName='System'} | Where-Object -Property Message -Match 'the system has resumed'
+					 <br>13-Filter by date:Get-WinEvent -FilterHashtable @{LogName='System';StartTime=$StartTime;EndTime=$EndTime}
+					 <br>14-list without detials :Get-WinEvent -FilterHashtable @{LogName='Security''} | Format-Table -Property RecordId,TimeCreated,ID,LevelDisplayName,Message
+					</br></br></br></br></br></span>
+						")
+windows--> wd5("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'>General Information:</b>
+					 <br>1-<b>Powershell History File :</b> : %appdata%\Microsoft\Windows\PowerShell\PSReadLine
+					 <br>2- Check if Powershell Is Admin: [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match 'S-1-5-32-544')
+	
+					</br></br></br></br></br></span>
+						")
 classDef default text-align:left,font-size:30px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
