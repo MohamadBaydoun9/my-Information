@@ -185,15 +185,25 @@ windows--> wd4("<span style='white-space: normal;font-size:30px'>
 						")
 windows--> wd5("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'>Services And Processes</b>
-					 <br>1-<b>listing Logs</b> : Get-WinEvent -ListLog *
-					 <br>2-
-					 <br>3-
-					 <br>4-
-					 <br>5-
-					 <br>6-
-					 <br>7-
-					 <br>8-
-					 <br>9-
+					 <br>1-list services :get-service -property *
+					 <br>2-extract properties : get-service | get-member
+					 <br>3-example: get-service -DisplayName "windows a*"
+					 <br>4-remote :  get-service spooler -ComputerName novo8
+					 <br>5-stopped :get-service | where {$_.status -eq 'stopped'}
+					 <br>6-group based on status: get-service | Group-Object -Property Status 
+					 <br>7-stop service: stop-service lanmanserver -force –PassThru
+					 <br>8-start service:start-service wuauserv -PassThru
+					 <br>8-restart service:restart-service spooler -PassThru
+					 <br>9-suspend : suspend-service o2flash -PassThru
+					 <br>10-resume:resume-service o2flash -PassThru
+					 <br>11-Remote Services :Invoke-Command {restart-service dns –passthru} –comp chi-dc03,chi-dc02,chi-dc01
+					 <br>12-Setting Startup Type: set-service remoteregistry -StartupType Manual -WhatIf
+					 <br>-----------------wmi-----------------
+					 <br>1-list services : get-wmiobject win32_service | format-table
+					 <br>2-search service: get-wmiobject win32_service -filter "name='bits'" | Select *
+					 <br>3-example:get-wmiobject win32_service -filter "startmode='auto' AND state<>'Running'"
+					 <br>4-Get Account:get-wmiobject win32_service -comp chi-ex01 | group startname 
+	`					<br>Methods to use  :get-wmiobject win32_service -filter "name='lanmanserver'" | get-member -MemberType Method | Select name
 					 
 					 </br></br></br></br></br></span>
 						")
@@ -201,7 +211,10 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'>General Information:</b>
 					 <br>1-<b>Powershell History File :</b> : %appdata%\Microsoft\Windows\PowerShell\PSReadLine
 					 <br>2- Check if Powershell Is Admin: [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match 'S-1-5-32-544')
-	
+					 <br>3-execute command remotly :Invoke-Command -ComputerName Server01 {Restart-Service Spooler}
+					 <br>4-get cmdlet properties get-service | get-member
+					 <br>5-Count result Lines : .count
+					 <br>6-search commands : get-command -noun service 
 					</br></br></br></br></br></span>
 						")
 classDef default text-align:left,font-size:30px;
