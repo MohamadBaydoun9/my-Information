@@ -1,9 +1,9 @@
-<head>
-  <link rel="stylesheet" href="mstyles.css">
-</head>
+
+
 <h1>Windows</h1>
 
 ```mermaid
+%%{init: { 'theme':'white', 'htmlLabels': true} }%%
 graph LR
     
 windows{Windows}
@@ -16,7 +16,7 @@ windows --> w1[["Windows Information
 windows --> w2[["utilities &#32 &#32 &#32 &#32 &#32 &#32 &#32 &#32j																	
 						 <br>1-Remote Desktop RDP :mstsc.exe
 									"]]
-windows --> w3[[Permissions]]
+windows --> w3[[<b>Permissions</b>]]
 w3 --> wcommand31("ICACLS Tool For NTFS ")
 wcommand31 --> icacls1("(CI): container inherit 
 											</br>(OI): object inherit	
@@ -96,7 +96,7 @@ wcommand31 --> icacls2("icalcls on a folder that only gets created once a user s
 											</br>")
 
 
-w3 --> wcommand32("Share Permissions
+w3 --> wcommand32("<span style='white-space: normal;'>Share Permissions
 										<br>1-Create Share :net share name='path' /grant:group,changeORreadORfull
 										<br>2-use smbclient to Connect to the Share :smbclient -L IPaddressOfTarget -U htb-student
 										<br>3-view all the shared folders : net share
@@ -104,7 +104,7 @@ w3 --> wcommand32("Share Permissions
 											</br>
 											</br>
 											</br>
-											</br>
+											</br></span>
 										")
 
 
@@ -162,7 +162,7 @@ w4--> wd3("mpcmdrun.exe Tool powershell:
 											</br>
 						")
 
-classDef default text-align:left,font-size:18px,white-space:normal;
+classDef default text-align:left,font-size:20px;
 linkStyle default fill:none,stroke-width:3px,stroke:red;
 
 
