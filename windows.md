@@ -7,19 +7,21 @@
 graph LR
     
 windows{Windows}
-windows --> w1[["<span style='white-space: normal;'>Windows Information	
+windows --> w1[["<span style='white-space: normal;font-size:30px'>Windows Information	
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 								<br> 2-Systeminfo
 								<br> 3-wmic os get version
 								<br> 4-ver
 								</br></br></br></br></br></span>
 							"]]
-windows --> w2[["utilities															
+windows --> w2[["<span style='white-space: normal;font-size:30px'>
+						utilities															
 						 <br>1-Remote Desktop RDP :mstsc.exe
+						 </br></br></br></br></br></span>
 									"]]
 windows --> w3[[<b>Permissions</b>]]
 w3 --> wcommand31("ICACLS Tool For NTFS ")
-wcommand31 --> icacls1("<span style='white-space: normal;'>
+wcommand31 --> icacls1("<span style='white-space: normal;font-size:30px'>
 											(CI): container inherit 
 											</br>(OI): object inherit	
 											</br>(IO): inherit only
@@ -75,7 +77,8 @@ wcommand31 --> icacls1("<span style='white-space: normal;'>
 
 								
 
-wcommand31 --> icacls2("<span style='white-space: normal;'>icalcls on a folder that only gets created once a user signs
+wcommand31 --> icacls2(<span style='white-space: normal;font-size:30px'>
+										icalcls on a folder that only gets created once a user signs
 										<br>@echo OFF
 										<br>set folderpath=%LOCALAPPDATA%\YourFolder
 										<br>:START
@@ -91,7 +94,8 @@ wcommand31 --> icacls2("<span style='white-space: normal;'>icalcls on a folder t
 											")
 
 
-w3 --> wcommand32("<span style='white-space: normal;'>Share Permissions
+w3 --> wcommand32("<span style='white-space: normal;font-size:30px'>
+										Share Permissions
 										<br>1-Create Share :net share name='path' /grant:group,changeORreadORfull
 										<br>2-use smbclient to Connect to the Share :smbclient -L IPaddressOfTarget -U htb-student
 										<br>3-view all the shared folders : net share
@@ -100,13 +104,15 @@ w3 --> wcommand32("<span style='white-space: normal;'>Share Permissions
 
 
 windows --> w4[[Windows Defender]]
-w4--> wd1("<span style='white-space: normal;'>stop windows defender :
+w4--> wd1("<span style='white-space: normal;font-size:30px'>
+					stop windows defender :
 					 <br>1-sc stop WinDefend
 					 <br>2-sc config WinDefend start= disabled 
 					 <br>3-sc query WinDefend
 					 	</br></br></br></br></br></span>
 					 ")
-w4--> wd2("<span style='white-space: normal;'>mpcmdrun.exe Tool CMD:
+w4--> wd2("<span style='white-space: normal;font-size:30px'>\
+						mpcmdrun.exe Tool CMD:
 					 <br>1-find the utility in %ProgramFiles%\Windows Defender\MpCmdRun.exe
 					 <br>2-check for upadate :MpCmdRun -SignatureUpdate
 					 <br>3-remove definitions ::MpCmdRun -RemoveDefinitions -DynamicSignaturesThe -DynamicSignatures
@@ -118,7 +124,8 @@ w4--> wd2("<span style='white-space: normal;'>mpcmdrun.exe Tool CMD:
 				 	 <br>9-Exclution path : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths
 					 </br></br></br></br></br></span>
 						")
-w4--> wd3("<span style='white-space: normal;'>mpcmdrun.exe Tool powershell:
+w4--> wd3("<span style='white-space: normal;font-size:30px'>
+						mpcmdrun.exe Tool powershell:
 					 <br>1-status of Microsoft Defender::Get-MpComputerStatus -Confirm the AntivirusEnabled is reads True
 					 <br>2-check for upadate :Update-MpSignature
 					 <br>3-offline virus scan :Start-MpWDOScan
