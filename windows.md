@@ -11,7 +11,7 @@ windows{"<span style='white-space: normal;font-size:30px'>
 	</br></br></br></br></br></span>
 	"}
 windows --> w1[["<span style='white-space: normal;font-size:30px'>
-								Windows Information	
+								<b style='font-size:40px;'>Windows Information	</b>
 								<br> 1-Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 								<br> 2-Systeminfo
 								<br> 3-wmic os get version
@@ -19,17 +19,17 @@ windows --> w1[["<span style='white-space: normal;font-size:30px'>
 								</br></br></br></br></br></span>
 							"]]
 windows --> w2[["<span style='white-space: normal;font-size:30px'>
-						  utilities															
+						  <b style='font-size:40px;'>utilities		</b>													
 						 <br>1-Remote Desktop RDP :mstsc.exe
 						 </br></br></br></br></br></span>
 									"]]
 windows --> w3[["<span style='white-space: normal;font-size:30px'>
-								<b>Permissions</b>
+								<b style='font-size:40px;'>Permissions</b>
 								</br></br></br></br></br></span>
 								"]]
 w3 --> wcommand31("
 									<span style='white-space: normal;font-size:30px'>
-									ICACLS Tool For NTFS 
+									<b style='font-size:40px;'>ICACLS Tool For NTFS </b>
 									</br></br></br></br></br></span>
 									")
 wcommand31 --> icacls1("<span style='white-space: normal;font-size:30px'>
@@ -89,7 +89,7 @@ wcommand31 --> icacls1("<span style='white-space: normal;font-size:30px'>
 								
 
 wcommand31 --> icacls2("<span style='white-space: normal;font-size:30px'>
-										icalcls on a folder that only gets created once a user signs
+										<b style='font-size:40px;'>icalcls on a folder that only gets created once a user signs</b>
 										<br>@echo OFF
 										<br>set folderpath=%LOCALAPPDATA%\YourFolder
 										<br>:START
@@ -106,7 +106,7 @@ wcommand31 --> icacls2("<span style='white-space: normal;font-size:30px'>
 
 
 w3 --> wcommand32("<span style='white-space: normal;font-size:30px'>
-										Share Permissions
+										<b style='font-size:40px;'>Share Permissions</b>
 										<br>1-Create Share :net share name='path' /grant:group,changeORreadORfull
 										<br>2-use smbclient to Connect to the Share :smbclient -L IPaddressOfTarget -U htb-student
 										<br>3-view all the shared folders : net share
@@ -115,18 +115,18 @@ w3 --> wcommand32("<span style='white-space: normal;font-size:30px'>
 
 
 windows --> w4[["<span style='white-space: normal;font-size:30px'>
-									Windows Defender
+									<b style='font-size:40px;'>Windows Defender</b>
 									</br></br></br></br></br></span>
 									"]]
 w4--> wd1("<span style='white-space: normal;font-size:30px'>
-					stop windows defender :
+					<b style='font-size:40px;'>stop windows defender :</b>
 					 <br>1-sc stop WinDefend
 					 <br>2-sc config WinDefend start= disabled 
 					 <br>3-sc query WinDefend
 					 	</br></br></br></br></br></span>
 					 ")
 w4--> wd2("<span style='white-space: normal;font-size:30px'>\
-						mpcmdrun.exe Tool CMD:
+						<b style='font-size:40px;'>window Defender Tool CMD:</b>
 					 <br>1-find the utility in %ProgramFiles%\Windows Defender\MpCmdRun.exe
 					 <br>2-check for upadate :MpCmdRun -SignatureUpdate
 					 <br>3-remove definitions ::MpCmdRun -RemoveDefinitions -DynamicSignaturesThe -DynamicSignatures
@@ -139,7 +139,7 @@ w4--> wd2("<span style='white-space: normal;font-size:30px'>\
 					 </br></br></br></br></br></span>
 						")
 w4--> wd3("<span style='white-space: normal;font-size:30px'>
-						mpcmdrun.exe Tool powershell:
+						<b style='font-size:40px;'>Window Defender Tool powershell:</b>
 					 <br>1-status of Microsoft Defender::Get-MpComputerStatus -Confirm the AntivirusEnabled is reads True
 					 <br>2-check for upadate :Update-MpSignature
 					 <br>3-offline virus scan :Start-MpWDOScan
