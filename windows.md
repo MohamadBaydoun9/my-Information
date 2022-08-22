@@ -233,7 +233,7 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 					 <br>1- Check if wmi Is Running: sc query winmgmt
 					 <br>2-Start wmi Service :sc start winmgmt
 					 <br>3-check if wmi enabled by firewall:netsh advfirewall firewall show rule name='windows management instrumentation (WMI-in)'
-					 <br>4-enable by firewall :netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes
+					 <br>4-enable by firewall :netsh advfirewall firewall set rule group='windows management instrumentation (wmi)' new enable=yes
 					 <br>5-Getting detailed information with wmic :type wmic then : OS get /?.
 					 <br>6-connect to several computers :/node:[computername] /user:[username] /password:[password]
 					 <br>7-last booted :OS get LastBootUpTime.
@@ -246,8 +246,8 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 					 <br>14-wmic process where ExecutablePath='C:\\windows\\system32\\notepad.exe' get ProcessId
 					 <br>15-Get All the Users logged in to a Remote System
 					 <br>16-wmic /node:192.168.27.103 /user:admin /password:pass123 computersystem get username
-					 <br>17-Check all the logs related to Explorer:wmic ntevent where (message like "%explorer%") list brief
-					 <br>18-get path for process :wmic process where "name='chrome.exe'" get ProcessID, ExecutablePath
+					 <br>17-Check all the logs related to Explorer:wmic ntevent where (message like '%explorer%') list brief
+					 <br>18-get path for process :wmic process where 'name='chrome.exe'' get ProcessID, ExecutablePath
 						 <br>19-Get the System Slot Status using wmic command :wmic systemslot get slotdesignation,currentusage,description,status
 					 <br>20-System Sensor Status :wmic temperature get deviceid,name,status
 					 <br>21- get sid of users :wmic useraccount get name,sid
