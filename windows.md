@@ -250,6 +250,7 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 					 <br>18-get path for process :wmic process where "name='chrome.exe'" get ProcessID, ExecutablePath
 						 <br>19-Get the System Slot Status using wmic command :wmic systemslot get slotdesignation,currentusage,description,status
 					 <br>20-System Sensor Status :wmic temperature get deviceid,name,status
+					 <br>21- get sid of users :wmic useraccount get name,sid
 					 
 					 
 					</br></br></br></br></br></span>
@@ -272,7 +273,7 @@ windows--> wd8("<span style='white-space: normal;font-size:30px'>
 					 <br>2-execution policy :Get-ExecutionPolicy -List
 					 <br>3-change policy:Set-ExecutionPolicy Bypass -Scope Process
 					 <br>4-run instance : Invoke-WmiMethod -Path win32_process -Name create -ArgumentList 'cmd /c cd ../../users/dell/desktop&&dir&&pause'
-					 <br>5-
+					 <br>5-search for word :findstr /si password *.xml *.ini *.txt 
 					 <br>6-
 					 <br>
 					</br></br></br></br></br></span>
