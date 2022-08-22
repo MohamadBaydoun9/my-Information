@@ -251,8 +251,7 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 						 <br>19-Get the System Slot Status using wmic command :wmic systemslot get slotdesignation,currentusage,description,status
 					 <br>20-System Sensor Status :wmic temperature get deviceid,name,status
 					 <br>21- get sid of users :wmic useraccount get name,sid
-					 
-					 
+
 					</br></br></br></br></br></span>
 						")												
 windows--> wd7("<span style='white-space: normal;font-size:30px'>
@@ -263,17 +262,35 @@ windows--> wd7("<span style='white-space: normal;font-size:30px'>
 					 <br>4-get cmdlet properties get-service | get-member
 					 <br>5-Count result Lines : .count
 					 <br>6-search commands : get-command -noun keyword 
-					 <br>
-					</br></br></br></br></br></span>
+					 <br>7-important dirs 
+					 <br>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+						<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+						<br>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
+						<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+			  		</br></br></br></br></br></span>
 						")
+						
 windows--> wd8("<span style='white-space: normal;font-size:30px'>
-						<b style='font-size:40px;'powershell:</b>
+						<b style='font-size:40px;'>powershell:</b>
 					 <br>1-Create msgbox :$wshell = new-object -COM 'Wscript.Shell' 
 					 <br> $wshell.Popup($msg,15,'Service Aler',64) | Out-Null
 					 <br>2-execution policy :Get-ExecutionPolicy -List
 					 <br>3-change policy:Set-ExecutionPolicy Bypass -Scope Process
 					 <br>4-run instance : Invoke-WmiMethod -Path win32_process -Name create -ArgumentList 'cmd /c cd ../../users/dell/desktop&&dir&&pause'
 					 <br>5-search for word :findstr /si password *.xml *.ini *.txt 
+					 <br>6-
+					 <br>
+					</br></br></br></br></br></span>
+						")						
+						
+windows--> wd9("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'>UAC:</b>
+					 <br>1- disable : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 
+					 <br>*To completely disable User Account Control, simply change the value of the EnableLUA parameter to 0 (zero), 
+					 <br>2- reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+					 <br>3-New-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name EnableLUA -PropertyType DWord -Value 0 -Force
+					 <br>4-
+					 <br>5-
 					 <br>6-
 					 <br>
 					</br></br></br></br></br></span>
