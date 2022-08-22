@@ -200,14 +200,14 @@ windows--> wd5("<span style='white-space: normal;font-size:30px'>
 					 <br>12-Setting Startup Type: set-service remoteregistry -StartupType Manual -WhatIf
 					 <br>-----------------wmi-----------------
 					 <br>1-list services : get-wmiobject win32_service | format-table
-					 <br>2-search service: get-wmiobject win32_service -filter "name='bits'" | Select *
+					 <br>2-search service: get-wmiobject win32_service -filter 'name='bits'' | Select *
 					 <br>3-example:get-wmiobject win32_service -filter 'startmode='auto' AND state<>'Running''
 					 <br>4-Get Account:get-wmiobject win32_service -comp chi-ex01 | group startname 
 	`				 <br>5-Methods That i can  use  :get-wmiobject win32_service -filter "name='lanmanserver'" | get-member -MemberType Method | Select name
 					 <br>6-Changing Mode:get-wmiobject win32_service -filter 'name='spooler'' | Invoke-WmiMethod -Name ChangeStartMode -ArgumentList 'Manual' 
-					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter "name='yammmsvc'" | Invoke-CimMethod -Name Change -Arguments 									@{StartName=".\Jeff";StartPassword="P@ssw0rd"}
+					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter "name='yammmsvc'" | Invoke-CimMethod -Name Change -Arguments 									@{StartName=".\Jeff";StartPassword='P@ssw0rd'}
 					 <br>8-site:https://4sysops.com/archives/managing-services-the-powershell-way-part-1/
-					 <br>9-get non standard service : Get-WmiObject win32_service | where { $_.Caption -notmatch "Windows" -and $_.PathName -notmatch "Windows"  } 
+					 <br>9-get non standard service : Get-WmiObject win32_service | where { $_.Caption -notmatch 'Windows' -and $_.PathName -notmatch 'Windows'  } 
 					 </br></br></br></br></br></span>
 						")
 windows--> wd6("<span style='white-space: normal;font-size:30px'>
@@ -224,7 +224,7 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 windows--> wd7("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'powershell:</b>
 					 <br>1-Create msgbox :$wshell = new-object -COM 'Wscript.Shell' 
-					 <br> $wshell.Popup($msg,15,"Service Alert",64) | Out-Null
+					 <br> $wshell.Popup($msg,15,'Service Aler',64) | Out-Null
 					 <br>2-
 					 <br>3-
 					 <br>4-
