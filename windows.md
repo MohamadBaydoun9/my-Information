@@ -203,9 +203,9 @@ windows--> wd5("<span style='white-space: normal;font-size:30px'>
 					 <br>2-search service: get-wmiobject win32_service -filter 'name='bits'' | Select *
 					 <br>3-example:get-wmiobject win32_service -filter 'startmode='auto' AND state<>'Running''
 					 <br>4-Get Account:get-wmiobject win32_service -comp chi-ex01 | group startname 
-	`				 <br>5-Methods That i can  use  :get-wmiobject win32_service -filter "name='lanmanserver'" | get-member -MemberType Method | Select name
+	`				 <br>5-Methods That i can  use  :get-wmiobject win32_service -filter 'name='lanmanserver'' | get-member -MemberType Method | Select name
 					 <br>6-Changing Mode:get-wmiobject win32_service -filter 'name='spooler'' | Invoke-WmiMethod -Name ChangeStartMode -ArgumentList 'Manual' 
-					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter "name='yammmsvc'" | Invoke-CimMethod -Name Change -Arguments 									@{StartName=".\Jeff";StartPassword='P@ssw0rd'}
+					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter 'name='yammmsvc'' | Invoke-CimMethod -Name Change -Arguments 									@{StartName='.\Jeff';StartPassword='P@ssw0rd'}
 					 <br>8-site:https://4sysops.com/archives/managing-services-the-powershell-way-part-1/
 					 <br>9-get non standard service : Get-WmiObject win32_service | where { $_.Caption -notmatch 'Windows' -and $_.PathName -notmatch 'Windows'  } 
 					 </br></br></br></br></br></span>
