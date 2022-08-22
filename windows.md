@@ -208,9 +208,53 @@ windows--> wd5("<span style='white-space: normal;font-size:30px'>
 					 <br>7-set an initial password for system accounts :Get-CimInstance win32_service -filter 'name='yammmsvc'' | Invoke-CimMethod -Name Change -Arguments 									@{StartName='.\Jeff';StartPassword='P@ssw0rd'}
 					 <br>8-site:https://4sysops.com/archives/managing-services-the-powershell-way-part-1/
 					 <br>9-get non standard service : Get-WmiObject win32_service | where { $_.Caption -notmatch 'Windows' -and $_.PathName -notmatch 'Windows'  } 
+					  <br>-----------------sc-----------------
+						<br>1-show service : sc qc wuauserv
+						<br>2-stop service : sc stop wuauserv
+						<br>3-change service executable : sc config wuauserv binPath=C:\Winbows\Perfectlylegitprogram.exe
+						<br>4-show permissions : sc sdshow wuauserv
+						<br>5-show permissions :Get-ACL -Path HKLM:\System\CurrentControlSet\Services\wuauserv | Format-List
+						<br>example :D: (A;;CCLCSWRPLORC;;;AU)
+						<br>D: - the proceeding characters are DACL permissions
+						<br>AU: - defines the security principal Authenticated Users
+						<br>A;; - access is allowed
+						<br>CC - SERVICE_QUERY_CONFIG is the full name, and it is a query to the service control manager (SCM) for the service configuration
+						<br>LC - SERVICE_QUERY_STATUS is the full name, and it is a query to the service control manager (SCM) for the current status of the service
+						<br>SW - SERVICE_ENUMERATE_DEPENDENTS is the full name, and it will enumerate a list of dependent services
+						<br>RP - SERVICE_START is the full name, and it will start the service
+						<br>LO - SERVICE_INTERROGATE is the full name, and it will query the service for its current status
+						<br>RC - READ_CONTROL is the full name, and it will query the security descriptor of the service
+						
 					 </br></br></br></br></br></span>
 						")
 windows--> wd6("<span style='white-space: normal;font-size:30px'>
+						<b style='font-size:40px;'Wmi:</b>
+						<br>WMI is a management technology that can be used for much more than reading system information<br> WMI enables you to run processes remotely, schedule 							tasks that have to start at particular times, <br>reboot computers remotely, read event logs, and find out which applications are installed on local and 							remote computers.
+					 <br>1- Check if wmi Is Running: sc query winmgmt
+					 <br>2-Start wmi Service :sc start winmgmt
+					 <br>3-check if wmi enabled by firewall:netsh advfirewall firewall show rule name='windows management instrumentation (WMI-in)'
+					 <br>4-enable by firewall :netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes
+					 <br>5-Getting detailed information with wmic :type wmic then : OS get /?.
+					 <br>6-connect to several computers :/node:[computername] /user:[username] /password:[password]
+					 <br>7-last booted :OS get LastBootUpTime.
+					 <br>8-output as html : /format:htable
+					 <br>9- read NIC properties remotly :wmic /node:192.168.23.214 NIC get description,macaddress
+					 <br>10-Get the List of all Installed Applications in Windows : wmic product get name
+					 <br>11-Count the number of Installed Updates in Windows :wmic qfe list | find /c /v ''
+					 <br>12-Get the Total Number of CPU Cores in Windows:wmic cpu get numberofcores
+					 <br>13-Process Id of a running program in Windows
+					 <br>14-wmic process where ExecutablePath='C:\\windows\\system32\\notepad.exe' get ProcessId
+					 <br>15-Get All the Users logged in to a Remote System
+					 <br>16-wmic /node:192.168.27.103 /user:admin /password:pass123 computersystem get username
+					 <br>17-Check all the logs related to Explorer:wmic ntevent where (message like "%explorer%") list brief
+					 <br>18-get path for process :wmic process where "name='chrome.exe'" get ProcessID, ExecutablePath
+						 <br>19-Get the System Slot Status using wmic command :wmic systemslot get slotdesignation,currentusage,description,status
+					 <br>20-System Sensor Status :wmic temperature get deviceid,name,status
+					 
+					 
+					</br></br></br></br></br></span>
+						")												
+windows--> wd7("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'>General Information:</b>
 					 <br>1-<b>Powershell History File :</b> : %appdata%\Microsoft\Windows\PowerShell\PSReadLine
 					 <br>2- Check if Powershell Is Admin: [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match 'S-1-5-32-544')
@@ -221,13 +265,13 @@ windows--> wd6("<span style='white-space: normal;font-size:30px'>
 					 <br>
 					</br></br></br></br></br></span>
 						")
-windows--> wd7("<span style='white-space: normal;font-size:30px'>
+windows--> wd8("<span style='white-space: normal;font-size:30px'>
 						<b style='font-size:40px;'powershell:</b>
 					 <br>1-Create msgbox :$wshell = new-object -COM 'Wscript.Shell' 
 					 <br> $wshell.Popup($msg,15,'Service Aler',64) | Out-Null
-					 <br>2-
-					 <br>3-
-					 <br>4-
+					 <br>2-execution policy :Get-ExecutionPolicy -List
+					 <br>3-change policy:Set-ExecutionPolicy Bypass -Scope Process
+					 <br>4-run instance : Invoke-WmiMethod -Path win32_process -Name create -ArgumentList 'cmd /c cd ../../users/dell/desktop&&dir&&pause'
 					 <br>5-
 					 <br>6-
 					 <br>
